@@ -8,3 +8,6 @@ The main issues in modifying the design to Eurorack format are:
 - using smaller jacks and potentiometers
 
 The ADC Inputs section of the [Daisy.patch schematics](https://daisy.nyc3.cdn.digitaloceanspaces.com/products/patch/ES_Daisy_Patch_Rev4.pdf)  might give some clue as to how to combine CV Inputs and pots.
+
+
+See also: https://modwiggler.com/forum/viewtopic.php?t=87748
