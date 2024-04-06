@@ -15,17 +15,21 @@ See also: https://modwiggler.com/forum/viewtopic.php?t=87748
 See `EuroTubeScreamer.kicad_sch` for the intial reproduction.
 
 Some questions and answers:
-- What do 'in' and 'out' represent? I guess the signal from the 1/4" jack tips? In the 'wiring diagram' section we can see that there are two PCBs, a main board and a bypass board
+- What do 'in' and 'out' represent? I guess the signal from the 1/4" jack tips?
+	- I guess I need to replace these with 
+	- In the 'wiring diagram' section we can see that there are two PCBs, a main board and a bypass board
+	 
 - 100R and 220R mean 100Ω and 220Ω respectively
 - The diodes on the schematic don't a value, but they are 1N914's
 - Why are there two LEDs?
+- 
 
 For a couple of components there were no matching symbols i.e.
 - for the 2N5088 transistor I am substituting 2N3904
 - for the JRC4558D dual op amp I am substituting the RC4558
 I will double check the details later to see if these subsitutions are appropriate.
 
-# Power distribution in the schematic
+## Power distribution
 
 To create the RA and RB power sources the recommended approach is to first place a standard +9V power source (or any other named source), then edited its symbol and change both it's label (at the top) and pin name (right in the centre) to RA/RB.
 
@@ -33,5 +37,17 @@ To me, when deriving RA and RB from the +9V the power is an output, whereas in o
 
 # Next steps
 
-- assign footprints for the pots, jack inputs, switches and LEDs
-- try to make a basic layout for the front panel and PCB
+1. Assign footprints for the pots, jack inputs, switches and LEDs
+2. Make a basic layout for the front panel and PCBs
+	- There will likely be two PCBs, one for the front panel components and one for the
+3. Complete the circuit by solving the main issues
+	- Getting power from 12V down to 9V
+	- Combining voltages from input pots + CV input jacks
+4. Route the circuit
+
+# Workflow
+
+# Things I learned
+
+- Two projects cannot be opened side by side in one instance of KiCad, instead to you have create a new instance e.g. right click on app icon and choose `New Window`
+- Once the two projects are opened in this way, you can copy elements between them
