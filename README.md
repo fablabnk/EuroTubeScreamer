@@ -18,11 +18,15 @@ Some questions and answers:
 - What do 'in' and 'out' represent? I guess the signal from the 1/4" jack tips?
 	- I guess I need to replace these with 
 	- In the 'wiring diagram' section we can see that there are two PCBs, a main board and a bypass board
+	- Schematic for the bypass board is here: https://aionfx.com/app/files/docs/3pdt_bypass_documentation.pdf
 	 
 - 100R and 220R mean 100Ω and 220Ω respectively
 - The diodes on the schematic don't a value, but they are 1N914's
-- Why are there two LEDs?
-- 
+- Why are there two LEDs in the main board schematic?
+- In the bypass board schematic, we have a 3PDT footswitch, but no inbuilt schematic symbol or footprint for it
+	- what will we replace this with in a eurorack context - guess just a normal 3PDT switch
+
+https://github.com/benwis/SparkFun-Kicad-Libraries
 
 For a couple of components there were no matching symbols i.e.
 - for the 2N5088 transistor I am substituting 2N3904
@@ -37,12 +41,13 @@ To me, when deriving RA and RB from the +9V the power is an output, whereas in o
 
 # Next steps
 
-1. Assign footprints for the pots, jack inputs, switches and LEDs
+1. [DONE] Assign footprints for the pots, jack inputs, switches and LEDs
 2. Make a basic layout for the front panel and PCBs
 	- There will likely be two PCBs, one for the front panel components and one for the
 3. Complete the circuit by solving the main issues
 	- Getting power from 12V down to 9V
 	- Combining voltages from input pots + CV input jacks
+	- Ensuring the inputs and outputs are at eurorack levels (10V)
 4. Route the circuit
 
 # Workflow
@@ -51,3 +56,11 @@ To me, when deriving RA and RB from the +9V the power is an output, whereas in o
 
 - Two projects cannot be opened side by side in one instance of KiCad, instead to you have create a new instance e.g. right click on app icon and choose `New Window`
 - Once the two projects are opened in this way, you can copy elements between them
+- To wire the switches to the PCB using hookup wire I created a new footprint called `TwoHole_Connector` consisting simply of two pads
+
+# Power
+
+For now I'm:
+- bringing in +12V from eurorack PSU
+- connecting it to where the 9v came in, in the original circuit
+- creating a 10V ref to be used to keep our CV input/pot in the right rack (10vpp)
